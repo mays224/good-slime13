@@ -4,81 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Good Slime by Mays</title>
+
 <style>
 body{
-font-family:Arial,sans-serif;
-background:#ffe6f2;
 margin:0;
-text-align:center;
+font-family:Arial,sans-serif;
+background:#fff6fb;
 }
+
 header{
 background:#ff66b2;
 color:white;
-padding:20px;
+padding:25px;
+text-align:center;
 }
+
+header h1{
+margin:0;
+font-size:34px;
+}
+
+header p{
+margin:8px 0;
+}
+
 .products{
 display:flex;
-justify-content:center;
-gap:20px;
 flex-wrap:wrap;
+justify-content:center;
 padding:20px;
+gap:20px;
 }
+
 .card{
 background:white;
-border-radius:15px;
+width:250px;
+border-radius:20px;
 padding:15px;
-width:220px;
-box-shadow:0 0 10px rgba(0,0,0,.15);
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
 }
+
+.card img{
+width:100%;
+border-radius:15px;
+}
+
+.price{
+color:#ff3399;
+font-size:22px;
+font-weight:bold;
+margin:10px;
+}
+
 button{
 background:#ff66b2;
 color:white;
 border:none;
-padding:10px 20px;
-border-radius:10px;
+padding:12px 20px;
+border-radius:12px;
+font-size:16px;
 cursor:pointer;
 }
-footer{
+
+.order{
+background:white;
+margin:30px;
 padding:20px;
-color:#666;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+textarea{
+width:100%;
+height:120px;
+border-radius:10px;
+padding:10px;
+font-size:16px;
+}
+
+.send{
+margin-top:15px;
+width:100%;
+font-size:18px;
 }
 </style>
+
 </head>
+
 <body>
 
 <header>
-<h1>Good Slime by Mays 💖</h1>
-<p>أهلاً بكم في متجر السلايم</p>
+<h1>🩷 Good Slime by Mays</h1>
+<p>Handmade Slime • Soft • Stretchy • Fun</p>
 </header>
 
 <div class="products">
 
 <div class="card">
-<h2>Butter Slime</h2>
-<p>سلايم ناعم جداً</p>
-<p><b>3 د.ك</b></p>
-<button>اطلب الآن</button>
+<img src="https://picsum.photos/300?1">
+<h3>Pink Slime</h3>
+<div class="price">3 KD</div>
+<button onclick="add('Pink Slime - 3 KD')">أضف للطلب</button>
 </div>
 
 <div class="card">
-<h2>Cloud Slime</h2>
-<p>سلايم كلاود خفيف</p>
-<p><b>3 د.ك</b></p>
-<button>اطلب الآن</button>
+<img src="https://picsum.photos/300?2">
+<h3>Blue Slime</h3>
+<div class="price">3 KD</div>
+<button onclick="add('Blue Slime - 3 KD')">أضف للطلب</button>
 </div>
 
 <div class="card">
-<h2>Pink Slime</h2>
-<p>سلايم بينك مميز</p>
-<p><b>3 د.ك</b></p>
-<button>اطلب الآن</button>
+<img src="https://picsum.photos/300?3">
+<h3>Butter Slime</h3>
+<div class="price">4 KD</div>
+<button onclick="add('Butter Slime - 4 KD')">أضف للطلب</button>
 </div>
 
 </div>
 
-<footer>
-© 2025 Good Slime by Mays
-</footer>
+<div class="order">
+
+<h2>🛍️ طلبك</h2>
+
+<textarea id="order" placeholder="اكتب طلبك هنا..."></textarea>
+
+<button class="send" onclick="sendWhatsApp()">
+إرسال الطلب إلى واتساب
+</button>
+
+</div>
+
+<script>
+
+function add(item){
+let box=document.getElementById("order");
+box.value += item + "\n";
+}
+
+function sendWhatsApp(){
+
+let text=document.getElementById("order").value;
+
+window.open(
+"https://wa.me/96596006562?text="+encodeURIComponent("السلام عليكم، أريد طلب:\n\n"+text),
+"_blank"
+);
+
+}
+
+</script>
 
 </body>
 </html>
